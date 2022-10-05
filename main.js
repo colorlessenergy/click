@@ -23,6 +23,15 @@ const colors = [
 
 const createCircle = () => {
     const randomRadius = rand(20, 40);
+    let randomXSpeed = rand(100, 200);
+    if (Math.random() > 0.5) {
+        randomXSpeed *= -1;
+    }
+
+    let randomYSpeed = rand(100, 200);
+    if (Math.random() > 0.5) {
+        randomYSpeed *= -1;
+    }
     add([
         pos(
             rand(randomRadius * 2, width() - randomRadius * 2),
@@ -34,8 +43,8 @@ const createCircle = () => {
         choose(colors),
         'ball',
         {
-            hspeed: rand(100, 200),
-            vspeed: rand(100, 200)
+            xSpeed: randomXSpeed,
+            YSpeed: randomYSpeed
         }
     ]);
 };
@@ -72,12 +81,12 @@ onTouchStart((id, pos) => {
 
 onUpdate('ball', c => {
     if (c.worldArea().p1.x < 0 || c.worldArea().p2.x > width()) {
-        c.hspeed = -c.hspeed;
+        c.xSpeed = -c.xSpeed;
     }
 
     if (c.worldArea().p1.y < 0 || c.worldArea().p2.y > height()) {
-        c.vspeed = -c.vspeed;
+        c.YSpeed = -c.YSpeed;
     }
 
-    c.move(c.hspeed, c.vspeed);
+    c.move(c.xSpeed, c.YSpeed);
 });
