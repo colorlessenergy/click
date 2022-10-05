@@ -23,12 +23,12 @@ const colors = [
 
 const createCircle = () => {
     const randomRadius = rand(20, 40);
-    let randomXSpeed = rand(100, 200);
+    let randomXSpeed = rand(100, 300);
     if (Math.random() > 0.5) {
         randomXSpeed *= -1;
     }
 
-    let randomYSpeed = rand(100, 200);
+    let randomYSpeed = rand(100, 300);
     if (Math.random() > 0.5) {
         randomYSpeed *= -1;
     }
