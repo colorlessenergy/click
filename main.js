@@ -22,7 +22,11 @@ const colors = [
 ];
 
 const createCircle = () => {
-    const randomRadius = rand(20, 40);
+    let randomRadius = rand(20, 40);
+    if (width() > 1000) {
+        randomRadius = rand(40, 60);
+    }
+
     let randomXSpeed = rand(100, 300);
     if (Math.random() > 0.5) {
         randomXSpeed *= -1;
